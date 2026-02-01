@@ -24,7 +24,7 @@
 }
 
 .projects-inner .projects-container .project-categories.active {
-    @apply top-0
+    @apply top-10 md:top-25
 }
 
 .projects-inner .projects-container .project-categories::-webkit-scrollbar {
@@ -77,7 +77,7 @@
 }
 
 .projects-container .project-list-wrapper .project-list {
-    @apply w-fit grid gap-5 py-3 px-3 justify-center overflow-y-auto max-h-100 items-stretch;
+    @apply w-fit sm:w-full grid gap-5 py-3 px-3 justify-center overflow-y-auto max-h-100 items-stretch;
     grid-template-columns: repeat(auto-fit, minmax(16rem, 18rem));
 }
 
@@ -123,7 +123,7 @@
 }
 
 .projects-container .project-list-wrapper .project-list .project-item .project-item-body .project-category-container .project-category-item {
-    @apply w-fit text-nowrap bg-teal rounded-full px-2 py-1 text-xs
+    @apply w-fit text-nowrap bg-teal rounded-full px-2 py-1 text-xs text-white
 }
 
 @media(max-width: 768px) {
@@ -134,6 +134,6 @@
 
 @media(min-width: 661px) {
     .projects-inner {
-        @apply sm:w-10/12
+        @apply w-10/12
     }
 }
