@@ -1,7 +1,7 @@
 @import '@/assets/css/color-scheme.css';
 
 #home-section {
-    @apply flex items-center my-12 md:my-0 px-5 md:px-0 justify-center h-screen relative
+    @apply flex items-center my-12 md:my-0 px-5 md:px-0 justify-center h-screen relative overflow-x-clip
 }
 
 #home-section .circuit-image-1, #home-section .circuit-image-2 {
