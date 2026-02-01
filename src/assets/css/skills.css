@@ -38,7 +38,7 @@
 }
 
 .skills-inner .skills-list-container .skills-list-wrapper {
-    @apply relative h-auto mb-25
+    @apply relative h-auto mb-25 overflow-x-clip
 }
 
 .skills-inner .skills-list-container .skills-list {
