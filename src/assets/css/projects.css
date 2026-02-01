@@ -3,7 +3,7 @@
 }
 
 .projects-inner {
-    @apply flex flex-col items-center justify-center w-full sm:w-10/12 h-full
+    @apply flex flex-col items-center justify-center w-full h-full
 }
 
 .projects-inner .section-title {
@@ -16,7 +16,7 @@
 }
 
 .projects-inner .projects-container {
-    @apply flex flex-col items-center relative w-full items-center justify-center overflow-clip h-100;
+    @apply flex flex-col items-center relative w-full justify-center overflow-clip h-130;
 }
 
 .projects-inner .projects-container .project-categories {
@@ -65,7 +65,7 @@
 }
 
 .projects-container .project-list-wrapper.active {
-    @apply -bottom-25
+    @apply bottom-5
 }
 
 .projects-container .project-list-wrapper .back-button {
@@ -77,7 +77,7 @@
 }
 
 .projects-container .project-list-wrapper .project-list {
-    @apply w-full grid gap-5 pt-3 justify-center overflow-y-auto max-h-100 items-stretch;
+    @apply w-fit grid gap-5 py-3 px-3 justify-center overflow-y-auto max-h-100 items-stretch;
     grid-template-columns: repeat(auto-fit, minmax(16rem, 18rem));
 }
 
@@ -129,5 +129,11 @@
 @media(max-width: 768px) {
     .projects-container .project-list-wrapper .project-list {
         grid-template-columns: repeat(auto-fit, minmax(14rem, 16rem));
+    }
+}
+
+@media(min-width: 661px) {
+    .projects-inner {
+        @apply sm:w-10/12
     }
 }

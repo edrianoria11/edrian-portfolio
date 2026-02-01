@@ -47,7 +47,7 @@
 }
 
 .skills-inner .skills-list-container .skills-list-wrapper .skills-list-wrapper-inner.tech {
-    @apply absolute w-full -left-[125%] transition-all duration-300 overflow-y-auto max-h-100 pt-3;
+    @apply absolute w-full -left-[125%] transition-all duration-400 overflow-y-auto max-h-100 py-3;
 }
 
 .skills-inner .skills-list-container .skills-list-wrapper .skills-list-wrapper-inner.tech::-webkit-scrollbar {
@@ -59,7 +59,7 @@
 }
 
 .skills-inner .skills-list-container .skills-list-wrapper .skills-list-wrapper-inner.soft {
-    @apply absolute w-full left-[125%] transition-all duration-400
+    @apply absolute w-full left-[125%] transition-all duration-400 overflow-y-auto max-h-100 py-3;
 }
 
 .skills-inner .skills-list-container .skills-list-wrapper .skills-list-wrapper-inner.soft::-webkit-scrollbar {
