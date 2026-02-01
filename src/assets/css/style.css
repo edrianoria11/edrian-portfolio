@@ -1,0 +1,66 @@
+@import 'tailwindcss';
+@import '@/assets/css/color-scheme.css';
+@import '@/assets/css/header.css';
+@import '@/assets/css/footer.css';
+@import '@/assets/css/home-section.css';
+@import '@/assets/css/color-scheme.css';
+@import '@/assets/css/skills.css';
+@import '@/assets/css/tools.css';
+@import '@/assets/css/connect.css';
+@import '@/assets/css/projects.css';
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    * {
+        font-family: 'Inter', sans-serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-bold uppercase;
+        font-family: 'Poppins', sans-serif !important;
+    }
+
+    h1 {
+        @apply text-5xl;
+    }
+
+    h2 {
+        @apply text-3xl sm:text-4xl;
+    }
+
+    h3 {
+        @apply text-3xl;
+    }
+
+    h4 {
+        @apply text-2xl;
+    }
+
+    h5 {
+        @apply text-xl;
+    }
+
+    h6 {
+        @apply text-lg;
+    }
+
+    body {
+        @apply bg-primary-background text-primary h-screen overflow-x-clip;
+    }
+
+}
+
+.main-container {
+    @apply relative py-10 md:pt-0
+}
+
+.btn {
+    @apply w-fit mt-5 rounded-md px-4 py-2 transition-colors duration-300 font-semibold;
+}
+
+.nav-item-list, .social-link-list {
+    list-style: none;
+}

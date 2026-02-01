@@ -1,0 +1,68 @@
+@layer base {
+    :root{
+        --primary-black-background: #222831;
+        --secondary-black-background: #393E46;
+        --primary-white-background: #FFF;
+        --secondary-white-background: #f8f6f6;
+        --primary-text-white: #FFF;
+        --secondary-text-white: #DDDDDD;
+        --primary-text-black: #222831;
+        --secondary-text-black: #393E46;
+        --teal-color-palette: #00ADB5;
+        --teal-color-dark-palette: #166b6e;
+    }
+}
+
+@utility bg-primary-background {
+    background-color: var(--primary-background);
+}
+
+@utility bg-secondary-background {
+    background-color: var(--secondary-background);
+}
+
+@utility bg-teal {
+    background-color: var(--teal-color);
+}
+
+@utility bg-teal-dark {
+    background-color: var(--teal-color-dark);
+}
+
+@utility text-primary {
+    color: var(--primary-text);
+}
+
+@utility text-secondary {
+    color: var(--secondary-text);
+}
+
+@utility text-teal-color {
+    color: var(--teal-color);
+}
+
+@utility text-teal-color-dark {
+    color: var(--teal-color-dark);
+}
+
+@utility text-black-color {
+    color: var(--primary-text-black);
+}
+
+[color-scheme="dark"] {
+    --primary-background: var(--primary-black-background);
+    --secondary-background: var(--secondary-black-background);
+    --primary-text: var(--primary-text-white);
+    --secondary-text: var(--secondary-text-white);
+    --teal-color: var(--teal-color-palette);
+    --teal-color-dark: var(--teal-color-dark-palette);
+}
+
+[color-scheme="light"] {
+    --primary-background: var(--primary-white-background);
+    --secondary-background: var(--secondary-white-background);
+    --primary-text: var(--primary-text-black);
+    --secondary-text: var(--secondary-text-black);
+    --teal-color: var(--teal-color-palette);
+    --teal-color-dark: var(--teal-color-dark-palette);
+}

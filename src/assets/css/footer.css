@@ -1,0 +1,37 @@
+@import '@/assets/css/color-scheme.css';
+
+.footer {
+    @apply bg-teal flex items-center justify-center;
+}
+
+.footer .footer-inner {
+    @apply w-full sm:w-10/12 py-5 text-white space-y-5;
+}
+
+.footer-inner .footer-section-1 {
+    @apply flex justify-between sm:justify-evenly px-5 sm:px-0;
+}
+
+.footer-section-1 .footer-section-1-1 p, .footer-section-1 .footer-section-1-2 p {
+    @apply text-xl mb-4 font-bold
+}
+
+.footer-section-1 .footer-section-1-1 ul, .footer-section-1 .footer-section-1-2 ul {
+    @apply flex gap-3;
+}
+
+.footer-section-1 .footer-section-1-1 .nav-item-list {
+    @apply flex-col;
+}
+
+.footer-section-1-1 .nav-item-list .nav-item {
+    @apply hover:text-teal-color-dark transition-colors duration-300 font-semibold;
+}
+
+.footer-section-1 .footer-section-1-2 .social-link-list i {
+    @apply text-2xl hover:text-teal-color-dark transition-colors duration-300 font-semibold;
+}
+
+.footer-inner .footer-section-2 {
+    @apply text-center;
+}

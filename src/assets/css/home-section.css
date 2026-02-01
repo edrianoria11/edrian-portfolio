@@ -1,0 +1,67 @@
+@import '@/assets/css/color-scheme.css';
+
+#home-section {
+    @apply flex items-center my-12 md:my-0 px-5 md:px-0 justify-center h-screen relative
+}
+
+#home-section .circuit-image-1, #home-section .circuit-image-2 {
+    @apply absolute -z-10 opacity-[0.5] min-w-350 sm:min-w-500
+}
+
+#home-section .circuit-image-1 {
+    @apply -top-[20%] md:-top-[50%] rotate-180
+}
+
+#home-section .circuit-image-2 {
+    @apply top-[20%] md:-top-[25%];
+    mask-image: linear-gradient(to top, transparent, var(--primary-background) 90%) ;
+}
+
+#home-section .home-inner {
+    @apply flex w-full md:w-10/12 flex-col md:flex-row gap-12
+}
+
+.home-inner .section-1, .home-inner .section-2 {
+    @apply w-full md:w-1/2
+}
+
+.home-inner .section-1 {
+    @apply flex flex-col justify-center space-y-1 text-center md:text-left
+}
+
+.home-inner .section-1 .text-1 {
+    @apply font-semibold text-primary text-lg
+}
+
+.home-inner .section-1 .text-2 {
+    @apply text-base text-secondary font-medium
+}
+
+.home-inner .section-1 h1 {
+    @apply text-teal-color text-nowrap
+}
+
+.home-inner .section-1 .btn {
+    @apply text-nowrap flex items-center justify-center w-75 sm:w-auto
+}
+
+.home-inner .section-1 .btn:nth-child(1) {
+    @apply flex items-center gap-2 bg-teal text-white hover:bg-teal-dark
+}
+
+.home-inner .section-1 .btn:nth-child(2) {
+    @apply flex items-center gap-2 border-2 border-[var(--teal-color)] text-teal-color hover:border-[var(--teal-color-dark)] hover:text-teal-color-dark py-1.5 font-semibold
+}
+
+.home-inner .section-2 {
+    @apply flex items-center justify-center md:justify-end
+}
+
+.home-inner .section-2 .image-container {
+    @apply flex items-center justify-center overflow-hidden rounded-full w-10/12 border-10 border-[var(--teal-color)] min-w-[280px] max-w-[400px];
+    box-shadow: 0 0 50px rgba(0, 128, 128, 0.75);
+}
+
+.home-inner .section-2 .image-container img {
+    @apply w-full h-full object-cover
+}

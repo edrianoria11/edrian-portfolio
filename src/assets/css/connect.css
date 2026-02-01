@@ -1,0 +1,86 @@
+#connect-section {
+    @apply flex items-center justify-center h-screen;
+}
+
+.connect-inner {
+    @apply w-10/12 h-full flex flex-col items-center gap-10 justify-center;
+}
+
+.connect-inner .section-title {
+    @apply text-primary
+}
+
+.connect-inner .section-title span {
+    @apply text-teal-color;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.connect-inner .connect-container {
+    @apply bg-secondary-background rounded-xl flex flex-col md:flex-row overflow-clip md:w-3/4 shadow-lg;
+}
+
+.connect-container .connect-section-1 {
+    @apply bg-teal flex items-center justify-center text-white p-3 max-h-102;
+    writing-mode: sideways-lr;
+    word-spacing: 5rem;
+}
+
+.connect-container .connect-section-2 {
+    @apply p-3 pt-10 w-full
+}
+
+.connect-container .connect-section-2 .connect-form {
+    @apply flex flex-col gap-2 w-full
+}
+
+.connect-container .connect-section-2 .connect-form .form-title {
+    @apply mb-8 text-nowrap;
+}
+
+.connect-container .connect-section-2 .connect-form .form-title span {
+    @apply text-teal-color;
+}
+
+.connect-section-2 .connect-form .input-wrapper {
+    @apply flex items-center justify-center border-3 border-[var(--teal-color)] rounded-sm p-3 pt-4 relative hover:border-[var(--teal-color-dark)] focus-within:outline-2 focus-within:outline-[var(--teal-color-dark)]
+}
+
+.connect-section-2 .connect-form .input-wrapper input,.connect-section-2 .connect-form .input-wrapper textarea {
+    @apply outline-0 border-0 w-full;
+    resize: none;
+}
+
+.connect-section-2 .connect-form .input-wrapper textarea {
+    @apply h-25
+}
+
+.connect-section-2 .connect-form .input-wrapper textarea::-webkit-scrollbar {
+    @apply w-1.5
+}
+
+.connect-section-2 .connect-form .input-wrapper:hover textarea::-webkit-scrollbar-thumb {
+    @apply bg-teal rounded-full
+}
+
+.connect-section-2 .connect-form .input-wrapper label {
+    @apply absolute left-3 top-3.5 transition-all duration-200 text-gray-500
+}
+
+.connect-section-2 .connect-form .input-wrapper:focus-within label, .connect-section-2 .connect-form .input-wrapper input:valid ~ label, .connect-section-2 .connect-form .input-wrapper textarea:valid ~ label {
+    @apply top-1 text-xs text-teal-color
+}
+
+.connect-section-2 .connect-form .btn {
+    @apply bg-teal text-white flex items-center justify-center gap-3 hover:bg-teal-dark w-full md:w-fit
+}
+
+.connect-section-2 .connect-form .btn i {
+    @apply text-2xl
+}
+
+@media(max-width: 768px) {
+    .connect-container .connect-section-1 {
+        writing-mode: horizontal-tb;
+        word-spacing: 5rem;
+    }
+}

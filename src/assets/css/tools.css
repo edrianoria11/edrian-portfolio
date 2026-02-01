@@ -1,0 +1,86 @@
+@import '@/assets/css/color-scheme.css';
+
+#tools-section {
+    @apply flex items-center justify-center h-screen;
+}
+
+.tools-inner {
+    @apply flex flex-col items-center justify-center gap-30 w-full sm:w-10/12 h-full
+}
+
+.tools-inner .section-title {
+    @apply text-primary
+}
+
+.tools-inner .section-title span {
+    @apply text-teal-color;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.tools-inner .tools-container {
+    @apply relative w-full
+}
+
+.tools-inner .carousel {
+    @apply flex overflow-x-hidden w-full;
+}
+
+.tools-inner .carousel::before {
+    @apply absolute top-0 left-0 w-25 h-full z-1;
+    content: '';
+    background: linear-gradient(to right, var(--primary-background), transparent);
+}
+
+.tools-inner .carousel::after {
+    @apply absolute top-0 right-0 w-25 h-full z-1;
+    content: '';
+    background: linear-gradient(to left, var(--primary-background), transparent);
+}
+
+.tools-inner .carousel::-webkit-scrollbar {
+    @apply hidden
+}
+
+.tools-inner .carousel .group {
+    @apply flex items-center gap-4 pr-4;
+    animation: marquee 15s linear infinite;
+}
+
+.tools-inner .carousel:hover .group {
+    animation-play-state: paused;
+}
+
+.tools-inner .carousel .group .card {
+    @apply flex flex-col p-3 overflow-clip rounded-md  shadow-md bg-secondary-background shrink-0 grow-0 w-35 sm:w-50 relative
+}
+
+.tools-inner .carousel .group .card:hover .card-body {
+    @apply opacity-100
+}
+
+.tools-inner .carousel .group .card .card-body .card-title {
+    @apply text-base sm:text-lg
+}
+
+.carousel .group .card .card-image-container {
+    @apply flex items-center justify-center overflow-clip
+}
+
+.carousel .group .card .card-image-container img {
+    @apply w-full object-cover
+}
+
+.carousel .group .card .card-body {
+    @apply absolute left-0 p-3 bottom-0 h-full w-full flex items-end opacity-0 transition-all delay-300 text-white;
+    background: linear-gradient(to top, var(--teal-color), transparent)
+}
+
+@keyframes marquee {
+    from {
+        translate: 0;
+    }
+
+    to {
+        translate: -100%;
+    }
+}

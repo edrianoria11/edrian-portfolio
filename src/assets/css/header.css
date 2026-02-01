@@ -1,0 +1,99 @@
+@import "@/assets/css/color-scheme.css";
+
+.header{
+    @apply bg-teal text-white sm:h-18 flex flex-col sm:flex-row sm:items-center px-5 py-3 sm:py-0 sm:px-0 sm:justify-center font-semibold z-10 shadow-md;
+}
+
+.nav-toggler {
+    @apply flex items-center
+}
+
+.nav-toggler i {
+    @apply text-white hover:text-teal-color-dark transition-colors duration-300 text-4xl font-semibold cursor-pointer;
+}
+
+.navbar{
+    @apply pointer-events-none h-0 overflow-hidden flex flex-col sm:flex-row sm:items-center gap-2 justify-end w-full sm:w-10/12;
+}
+
+.navbar.active {
+    @apply h-75 sm:h-auto pointer-events-auto overflow-auto;
+}
+
+.navbar .nav-item-list {
+    @apply flex flex-col sm:flex-row gap-2
+}
+
+.nav-item-list .nav-item {
+    @apply px-1 sm:px-3 py-2 hover:text-teal-color-dark transition-colors duration-300 text-nowrap;
+}
+
+.nav-item-list .nav-item.active {
+    @apply text-teal-color-dark;
+}
+
+.line {
+    @apply bg-white h-0.5 sm:h-10 w-full sm:w-0.5 sm:mx-3;
+}
+
+.scrollspy-nav {
+    @apply fixed w-fit top-[25%] left-[2%] h-auto p-2 sm:p-4 rounded-2xl shadow-2xl transition-all duration-400 bg-teal z-10 text-white opacity-0 pointer-events-none;
+}
+
+.scrollspy-nav .navbar {
+    @apply flex-col w-fit h-auto pointer-events-auto items-start z-10
+}
+
+.scrollspy-nav .navbar .line {
+    @apply w-20 h-0.5 my-4 hidden
+}
+
+.scrollspy-nav .navbar .nav-item-list {
+    @apply flex-col items-center
+}
+
+.scrollspy-nav .navbar .nav-item-list .nav-item {
+    @apply px-1 w-full
+}
+
+.scrollspy-nav .navbar .nav-item-list .nav-item .nav-link {
+    @apply flex items-center justify-center gap-3
+}
+
+
+.scrollspy-nav .navbar .nav-item-list .nav-item .nav-link i {
+    @apply text-xl sm:text-2xl
+}
+
+.scrollspy-nav .navbar .nav-item-list .nav-item .nav-link .label {
+    @apply hidden w-full
+}
+
+.scrollspy-nav.active {
+    @apply w-fit h-auto opacity-100 pointer-events-auto rounded-2xl shadow-2xl;
+    /* top-[25%] left-[2%] */
+}
+
+.scrollspy-nav.active .navbar {
+    @apply flex-col w-full
+}
+
+.scrollspy-nav.active .navbar .line {
+    @apply w-20 h-0.5 my-4 hidden
+}
+
+.scrollspy-nav.active .navbar .nav-item-list {
+    @apply flex-col
+}
+
+.scrollspy-nav.active .navbar .nav-item-list .nav-item .nav-link {
+    @apply flex items-center justify-center gap-3
+}
+
+.scrollspy-nav.active .navbar .nav-item-list .nav-item .nav-link .label {
+    @apply hidden
+}
+
+.scrollspy-nav.active:hover .navbar .nav-item-list .nav-item .nav-link .label {
+    @apply block
+}
