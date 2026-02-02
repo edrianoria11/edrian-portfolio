@@ -1,5 +1,5 @@
 <template>
-  <Header :current-section="currentSection" />
+  <Header :current-section="currentSection" :nav-items="navItems" />
   <main class="main-container">
     <div id="home-section">
       <img src="@/assets/images/circuit-2.png" class="circuit-image-1" alt="" />
@@ -514,6 +514,14 @@ watch(currentSection, (newSection) => {
 watch(activeProjectCategory, (newCategory) => {
   console.log(newCategory)
 })
+
+const navItems = [
+  { name: 'home-section', label: 'Home', icon: 'bi bi-house-door' },
+  { name: 'skills-section', label: 'Skills', icon: 'fa-solid fa-brain' },
+  { name: 'tools-section', label: 'Tools', icon: 'bi bi-wrench-adjustable' },
+  { name: 'projects-section', label: 'Projects', icon: 'bi bi-archive' },
+  { name: 'connect-section', label: 'Connect', icon: 'bi bi-envelope' },
+]
 
 onMounted(() => {
   document.addEventListener('click', (e) => {

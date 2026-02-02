@@ -64,18 +64,14 @@ import { ref, onMounted } from 'vue'
 let screenWidth = ref()
 let isNavOpen = ref(false)
 
-const navItems = [
-  { name: 'home-section', label: 'Home', icon: 'bi bi-house-door' },
-  { name: 'skills-section', label: 'Skills', icon: 'fa-solid fa-brain' },
-  { name: 'tools-section', label: 'Tools', icon: 'bi bi-wrench-adjustable' },
-  { name: 'projects-section', label: 'Projects', icon: 'bi bi-archive' },
-  { name: 'connect-section', label: 'Connect', icon: 'bi bi-envelope' },
-]
-
 const props = defineProps({
   currentSection: {
     type: String,
     required: false,
+  },
+  navItems: {
+    type: Array,
+    required: true,
   },
 })
 

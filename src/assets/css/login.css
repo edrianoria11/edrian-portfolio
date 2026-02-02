@@ -1,0 +1,57 @@
+.main-container.login {
+    @apply p-0! h-screen overflow-hidden
+}
+
+.circuit-image-1, .circuit-image-2 {
+    @apply absolute -z-10 opacity-[0.3] min-w-350 sm:min-w-500
+}
+
+.circuit-image-1 {
+    @apply -top-[20%] md:-top-[50%] rotate-180
+}
+
+.circuit-image-2 {
+    @apply top-[20%] md:-top-[25%];
+    mask-image: linear-gradient(to top, transparent, var(--primary-background) 90%) ;
+}
+
+.header.login {
+    @apply bg-transparent shadow-none items-end sm:items-center sm:justify-end px-5;
+}
+
+.header.login .theme {
+    @apply w-fit;
+}
+
+.header.login .theme i {
+    @apply text-primary;
+}
+
+.login-form {
+    @apply w-1/4 mx-auto my-25 bg-secondary-background rounded-lg flex flex-col items-center gap-3 px-5 py-6 text-[var(--primary-text-black)] min-w-80;
+    box-shadow: 0 0 10px var(--teal-color);
+}
+
+.login-form .form-title {
+    @apply text-teal-color mb-7
+}
+
+.login-form .input-wrapper {
+    @apply w-full text-white max-h-14
+}
+
+.login-form .input-wrapper button {
+    @apply bg-transparent border-0 focus:border-0 focus:outline-0
+}
+
+.login-form .input-wrapper button i {
+    @apply text-teal-color hover:text-teal-color-dark text-2xl
+}
+
+.login-form .btn {
+    @apply text-white bg-teal w-full hover:bg-teal-dark
+}
+
+.login-form .alert {
+    @apply w-full mt-4
+}

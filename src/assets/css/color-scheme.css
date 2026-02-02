@@ -49,10 +49,15 @@
     color: var(--primary-text-black);
 }
 
+@utility text-primary-reverse {
+    color: var(--primary-text-reverse);
+}
+
 [color-scheme="dark"] {
     --primary-background: var(--primary-black-background);
     --secondary-background: var(--secondary-black-background);
     --primary-text: var(--primary-text-white);
+    --primary-text-reverse: var(--primary-text-black);
     --secondary-text: var(--secondary-text-white);
     --teal-color: var(--teal-color-palette);
     --teal-color-dark: var(--teal-color-dark-palette);
@@ -62,6 +67,7 @@
     --primary-background: var(--primary-white-background);
     --secondary-background: var(--secondary-white-background);
     --primary-text: var(--primary-text-black);
+    --primary-text-reverse: var(--primary-text-white);
     --secondary-text: var(--secondary-text-black);
     --teal-color: var(--teal-color-palette);
     --teal-color-dark: var(--teal-color-dark-palette);
