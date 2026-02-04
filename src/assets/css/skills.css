@@ -95,6 +95,10 @@
     @apply w-full h-full object-contain;
 }
 
+.skill-item .skill-body .skill-title {
+    @apply text-base;
+}
+
 .skill-item .skill-body .experience {
     @apply text-secondary text-sm sm:text-base;
 }

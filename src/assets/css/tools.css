@@ -59,7 +59,7 @@
 }
 
 .tools-inner .carousel .group .card .card-body .card-title {
-    @apply text-base sm:text-lg
+    @apply text-base
 }
 
 .carousel .group .card .card-image-container {
