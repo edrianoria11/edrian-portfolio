@@ -37,7 +37,7 @@
 
     <nav class="navbar">
       <i
-        class="bi bi-arrows-move drag-handle px-2 cursor-grabbing hover:text-[var(--teal-color-dark)] text-xl sm:text-2xl"
+        class="bi bi-arrows-move drag-handle px-2 cursor-grabbing hover:text-teal-color-dark text-xl sm:text-2xl"
       ></i>
       <ul class="nav-item-list">
         <li
