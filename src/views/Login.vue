@@ -6,14 +6,14 @@
     <form class="login-form" @submit.prevent="login()">
       <h2 class="form-title">Login</h2>
       <div class="input-wrapper">
-        <input type="text" id="email" v-model="email" required />
+        <input type="text" id="email" v-model.trim="email" required />
         <label for="email">Email</label>
       </div>
       <div class="input-wrapper">
         <input
           :type="isPasswordVisible ? 'text' : 'password'"
           id="password"
-          v-model="password"
+          v-model.trim="password"
           required
         /><button
           type="button"
