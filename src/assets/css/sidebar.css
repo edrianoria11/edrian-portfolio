@@ -1,0 +1,91 @@
+.sidebar-toggler {
+    @apply bg-teal flex items-center justify-end sm:h-18 px-5 py-3 sm:py-0
+}
+
+.sidebar-toggler i {
+    @apply text-4xl text-white hover:text-teal-color-dark font-semibold
+}
+
+.sidebar {
+    @apply fixed top-0 left-0 pointer-events-none opacity-0 z-100 h-full w-full bg-[rgba(0,0,0,0.5)] text-white transition-all duration-300 font-semibold;
+}
+
+.sidebar.active {
+    @apply pointer-events-auto opacity-100
+}
+
+.sidebar i {
+    @apply text-xl sm:text-2xl
+}
+
+.sidebar .sidebar-inner {
+    @apply relative -left-100 bg-teal w-fit h-full p-5 flex flex-col items-center gap-10 transition-all duration-300;
+}
+
+.sidebar.active .sidebar-inner {
+    @apply left-0
+}
+
+.sidebar .sidebar-inner .sidebar-header {
+    @apply flex flex-col gap-3
+}
+
+.sidebar .sidebar-inner .sidebar-header i {
+    @apply text-end hover:text-teal-color-dark transition-colors duration-300
+}
+
+.sidebar .sidebar-inner .sidebar-header .sidebar-title {
+     @apply text-nowrap
+}
+
+.sidebar .sidebar-inner .sidebar-nav {
+    @apply w-full
+}
+
+.sidebar .sidebar-inner .sidebar-nav .nav-item-list .nav-item {
+    @apply hover:bg-[rgba(255,255,255,0.2)] transition-colors duration-300 w-full px-3!
+}
+
+.sidebar .sidebar-inner .sidebar-nav .nav-item-list .nav-item .nav-link {
+    @apply flex items-center gap-2
+}
+
+.sidebar .sidebar-inner .sidebar-nav .nav-item-list .nav-item .nav-link i {
+    @apply text-xl sm:text-2xl
+}
+
+.sidebar .sidebar-inner .sidebar-nav .theme {
+    @apply px-3 py-2 flex items-center gap-2 hover:bg-[rgba(255,255,255,0.1)] transition-colors duration-300 w-full
+}
+
+.sidebar .sidebar-inner .sidebar-nav .theme label {
+    @apply inline-block cursor-pointer transition-colors duration-300
+}
+
+.sidebar .sidebar-inner .sidebar-nav .theme:hover label, .sidebar .sidebar-inner .sidebar-nav .theme:hover i {
+    @apply text-teal-color-dark
+}
+
+.sidebar .sidebar-inner .sidebar-profile {
+    @apply absolute bottom-0 left-0 p-5 w-full
+}
+
+.sidebar .sidebar-inner .sidebar-profile .sidebar-profile-inner {
+    @apply flex flex-col gap-2 w-full
+}
+
+.sidebar .sidebar-inner .sidebar-profile .sidebar-profile-inner .profile-info {
+    @apply flex items-center gap-2
+}
+
+.sidebar .sidebar-inner .sidebar-profile .sidebar-profile-inner .profile-info .profile-info-body .profile-email {
+    @apply text-sm text-[var(--secondary-text-white)]
+}
+
+.sidebar .sidebar-inner .sidebar-profile .sidebar-profile-inner .profile-info .profile-image {
+    @apply flex items-center justify-center overflow-clip rounded-full w-10 h-10 object-cover border-2 border-[var(--teal-color-dark)] bg-white
+}
+
+.sidebar .sidebar-inner .sidebar-profile .logout-button {
+    @apply flex items-center gap-2 hover:bg-[rgba(255,255,255,0.2)] transition-colors duration-300 px-3 py-2 cursor-pointer hover:text-teal-color-dark
+}

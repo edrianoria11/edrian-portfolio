@@ -37,7 +37,7 @@
 }
 
 .login-form .input-wrapper {
-    @apply w-full text-white max-h-14
+    @apply w-full text-primary max-h-14
 }
 
 .login-form .input-wrapper button {

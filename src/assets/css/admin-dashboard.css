@@ -1,0 +1,20 @@
+@import '@/assets/css/admin-home.css';
+@import '@/assets/css/admin-skills.css';
+@import '@/assets/css/admin-tools.css';
+@import '@/assets/css/admin-projects.css';
+
+#admin-home-section, #admin-skills-section, #admin-tools-section, #admin-projects-section {
+    @apply h-screen flex flex-col items-center
+}
+
+.admin-home-inner, .admin-skills-inner, .admin-tools-inner, .admin-projects-inner {
+    @apply h-full w-full sm:w-10/12 flex flex-col items-center justify-center px-5 md:px-0;
+}
+
+.admin-home-inner .section-title, .admin-skills-inner .section-title, .admin-tools-inner .section-title, .admin-projects-inner .section-title {
+    @apply w-full;
+}
+
+.admin-home-inner .section-title span, .admin-skills-inner .section-title span, .admin-tools-inner .section-title span, .admin-projects-inner .section-title span {
+    @apply text-teal-color;
+}
