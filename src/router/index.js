@@ -3,6 +3,9 @@ import { useSessionStore } from '@/stores/session'
 import HomeView from '@/views/Home.vue'
 import LoginView from '@/views/Login.vue'
 import AdminDashboardView from '@/views/admin/Dashboard.vue'
+import AdminSkillsView from '@/views/admin/Skills.vue'
+import AdminToolsView from '@/views/admin/Tools.vue'
+import AdminProjectsView from '@/views/admin/Projects.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -22,7 +25,22 @@ const router = createRouter({
       name: 'admin-dashboard',
       component: AdminDashboardView,
       meta: { requiresAuth: true }
-    }
+    },
+    {
+      path: '/admin/skills',
+      name: 'admin-skills',
+      component: AdminSkillsView,
+    },
+    {
+      path: '/admin/tools',
+      name: 'admin-tools',
+      component: AdminToolsView,
+    },
+    {
+      path: '/admin/projects',
+      name: 'admin-projects',
+      component: AdminProjectsView,
+    },
   ],
 })
 
