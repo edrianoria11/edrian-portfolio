@@ -49,7 +49,7 @@
 }
 
 .login-form .btn {
-    @apply text-white bg-teal w-full hover:bg-teal-dark
+    @apply text-white bg-teal w-full hover:bg-teal-dark disabled:bg-teal-dark disabled:cursor-not-allowed
 }
 
 .login-form .alert {
