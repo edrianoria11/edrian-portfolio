@@ -4,7 +4,7 @@
 @import '@/assets/css/admin-projects.css';
 
 #admin-home-section, #admin-skills-section, #admin-tools-section, #admin-projects-section {
-    @apply h-screen flex flex-col items-center
+    @apply h-full flex flex-col items-center py-0 md:py-10
 }
 
 .admin-home-inner, .admin-skills-inner, .admin-tools-inner, .admin-projects-inner {
@@ -12,7 +12,7 @@
 }
 
 .admin-home-inner .section-title, .admin-skills-inner .section-title, .admin-tools-inner .section-title, .admin-projects-inner .section-title {
-    @apply w-full;
+    @apply w-full text-center sm:text-start;
 }
 
 .admin-home-inner .section-title span, .admin-skills-inner .section-title span, .admin-tools-inner .section-title span, .admin-projects-inner .section-title span {
