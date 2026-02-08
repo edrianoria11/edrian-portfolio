@@ -16,11 +16,11 @@
 }
 
 .connect-inner .connect-container {
-    @apply bg-secondary-background rounded-xl flex flex-col md:flex-row overflow-clip md:w-3/4 shadow-lg;
+    @apply bg-secondary-background rounded-xl flex flex-col md:flex-row overflow-clip md:w-3/4 shadow-lg min-w-fit;
 }
 
 .connect-container .connect-section-1 {
-    @apply bg-teal flex items-center justify-center text-white p-3 max-h-102;
+    @apply bg-teal flex items-center justify-center text-white p-3 max-h-117;
     writing-mode: sideways-lr;
     word-spacing: 5rem;
 }
@@ -78,9 +78,16 @@
     @apply text-2xl
 }
 
-@media(max-width: 768px) {
+@media(max-width: 767px) {
     .connect-container .connect-section-1 {
         writing-mode: horizontal-tb;
         word-spacing: 5rem;
+    }
+}
+
+@media(min-width: 687px) and ( max-width: 767px) {
+    .connect-container .connect-section-1 {
+        writing-mode: horizontal-tb;
+        word-spacing: 9rem;
     }
 }
