@@ -54,6 +54,14 @@
         @apply bg-primary-background text-primary h-screen overflow-x-hidden;
     }
 
+    body::-webkit-scrollbar {
+        @apply w-2
+    }
+
+    body::-webkit-scrollbar-thumb {
+        @apply rounded-full bg-teal-dark
+    }
+
 }
 
 .main-container {
@@ -61,7 +69,7 @@
 }
 
 .btn {
-    @apply w-fit mt-5 rounded-md px-4 py-2 transition-colors duration-300 font-semibold;
+    @apply w-fit mt-5 rounded-md px-4 py-2 transition-colors duration-300 font-semibold disabled:cursor-not-allowed disabled:bg-teal-dark min-w-50;
 }
 
 .nav-item-list, .social-link-list {
@@ -115,4 +123,84 @@
 
 .alert.alert-success {
     @apply bg-green-100 border border-green-400 text-green-700 rounded-md
+}
+
+.modal {
+    @apply fixed top-0 left-0 w-full h-full flex items-center justify-center bg-[rgba(0,0,0,0.10)] opacity-0 pointer-events-none transition-all duration-300
+}
+
+.modal.active {
+    @apply opacity-100 pointer-events-auto
+}
+
+.modal .modal-inner {
+    @apply bg-secondary-background w-3/4 flex flex-col gap-5 p-5 rounded-xl min-w-85
+}
+
+.modal .modal-inner .modal-header {
+    @apply flex flex-col
+}
+
+.modal .modal-inner .modal-header .modal-close-btn {
+    @apply text-2xl font-semibold text-teal-color self-end cursor-pointer hover:text-teal-color-dark transition-colors duration-300
+}
+
+.modal .modal-inner .modal-header .modal-title {
+    @apply text-2xl sm:text-3xl
+}
+
+.modal .modal-inner .modal-title span {
+    @apply text-teal-color
+}
+
+.modal .modal-inner .message-content {
+    @apply flex flex-col gap-3
+}
+
+.modal .modal-inner .message-content .form-group {
+    @apply flex items-center gap-2
+}
+
+.modal .modal-inner .message-content .form-group i {
+    @apply text-xl font-semibold text-teal-color
+}
+
+.modal .modal-inner .message-content .form-group .sender-email {
+    @apply font-semibold
+}
+
+.modal .modal-inner .message-content .form-group .sender-message {
+    @apply text-secondary
+}
+
+.modal .modal-inner .message-content .actions {
+    @apply flex gap-3 items-center mt-3
+}
+
+.modal .modal-inner .message-content .actions .btn {
+    @apply m-0 w-30 min-w-0
+}
+
+.modal .modal-inner .message-content .form-group:nth-child(2) {
+    @apply items-start!
+}
+
+.modal .modal-inner .message-content .sender-message {
+    @apply overflow-y-auto max-h-90
+}
+
+.modal .modal-inner .message-content .sender-message::-webkit-scrollbar {
+    @apply w-1.5
+}
+
+.modal .modal-inner .message-content .sender-message::-webkit-scrollbar-thumb {
+    @apply bg-teal-dark rounded-full
+}
+
+.modal .modal-inner .message-content .actions .reply-button {
+    @apply bg-teal text-white hover:bg-teal-dark
+}
+
+.modal .modal-inner .message-content .actions .delete-button {
+    @apply bg-red-500 text-white hover:bg-red-800
 }
