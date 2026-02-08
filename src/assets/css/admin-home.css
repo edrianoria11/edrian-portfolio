@@ -6,9 +6,69 @@
     @apply w-full flex flex-col gap-5
 }
 
+.admin-home-inner .messages-container .container-header {
+    @apply flex flex-col justify-center gap-5
+}
+
+.admin-home-inner .messages-container .container-header .container-title {
+    @apply text-2xl sm:text-3xl text-center sm:text-start
+}
+
+.admin-home-inner .messages-container .container-header .container-header-inner {
+    @apply flex flex-col sm:flex-row sm:items-center gap-5
+}
+
+.admin-home-inner .messages-container .container-header .container-header-inner .filter-toggler {
+    @apply text-2xl text-teal-color hover:text-teal-color-dark transition-colors duration-300 font-semibold cursor-pointer text-start
+}
+
+.admin-home-inner .messages-container .container-header .container-header-inner .reset-button {
+    @apply text-2xl text-teal-color hover:text-teal-color-dark transition-colors duration-300 font-semibold cursor-pointer text-start
+}
+
+.admin-home-inner .messages-container .container-header .container-header-inner .list-sorter {
+    @apply border-2 border-[var(--teal-color)] rounded-sm sm:w-50 p-3 py-2 focus:outline-none
+}
+
+.admin-home-inner .messages-container .container-header .container-header-inner .input-wrapper {
+    @apply border-2 border-[var(--teal-color)] rounded-sm sm:w-50 p-3 py-2 focus:outline-none
+}
+
+.admin-home-inner .messages-container .container-header .container-header-inner .input-wrapper label {
+    @apply top-2 text-base -z-10 hidden text-gray-500
+}
+
+.admin-home-inner .messages-container .container-header .container-header-inner .input-wrapper label.active {
+    @apply block
+}
+
+.admin-home-inner .messages-container .container-header .container-header-inner .list-sorter:focus {
+    box-shadow: 0 0 10px var(--teal-color-dark);
+}
+
+.admin-home-inner .messages-container .messages-filter {
+    @apply max-h-0 bg-secondary-background rounded-md transition-all duration-300 overflow-hidden pointer-events-none shadow-md
+}
+
+.admin-home-inner .messages-container .messages-filter.active {
+    @apply max-h-50 bg-secondary-background rounded-md pointer-events-auto
+}
+
+.admin-home-inner .messages-container .messages-filter .filter-list {
+    @apply flex flex-col flex-wrap gap-3 max-h-50 h-auto p-5
+}
+
+.admin-home-inner .messages-container .messages-filter .filter-list .filter-item {
+    @apply flex gap-2 items-center
+}
+
+.admin-home-inner .messages-container .messages-filter .filter-list .filter-item input, .admin-home-inner .messages-container .messages-filter .filter-list .filter-item label {
+    @apply cursor-pointer
+}
+
 .admin-home-inner .messages-container .messages-list {
-    @apply grid w-full gap-5 max-h-100 overflow-y-auto py-3;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    @apply grid w-full gap-5 py-3 justify-center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 21.5rem));
 }
 
 .admin-home-inner .messages-container .messages-list::-webkit-scrollbar {
@@ -20,7 +80,11 @@
 }
 
 .admin-home-inner .messages-container .messages-list .message-item {
-    @apply bg-secondary-background p-5 rounded-md shadow-md space-y-2 transition-all duration-300 cursor-pointer;
+    @apply bg-secondary-background p-4 rounded-md shadow-md space-y-2 transition-all duration-300 cursor-pointer;
+}
+
+.admin-home-inner .messages-container .messages-list .message-item.seen {
+    @apply bg-tertiary-background-reverse;
 }
 
 .admin-home-inner .messages-container .messages-list .message-item:hover {
@@ -31,6 +95,99 @@
     @apply text-teal-color text-xl;
 }
 
+.admin-home-inner .messages-container .messages-list .message-item .message-header {
+    @apply text-end;
+}
+
+.admin-home-inner .messages-container .messages-list .message-item .message-header .message-date {
+    @apply text-secondary text-xs;
+}
+
+.admin-home-inner .messages-container .messages-list .message-item .message-sender {
+    @apply font-semibold
+}
+
 .admin-home-inner .messages-container .messages-list .message-item .message-content, .admin-home-inner .messages-container .messages-list .message-item .message-sender {
     @apply flex gap-3;
+}
+
+.admin-home-inner .messages-container .messages-list .message-item .message-content {
+    @apply max-h-20 overflow-hidden relative text-secondary text-sm
+}
+
+.admin-home-inner .messages-container .messages-list .message-item .message-content .message {
+    @apply pt-1
+}
+
+.admin-home-inner .messages-container .messages-list .message-item .message-content.fade::after {
+    @apply absolute flex items-center justify-center text-teal-color bottom-0 w-full h-10 transition-all duration-300 font-semibold;
+    content: '';
+    background: linear-gradient(to top, var(--secondary-background), transparent)
+}
+
+.admin-home-inner .messages-container .messages-list .message-item:hover .message-content.fade::after {
+    @apply absolute bottom-0 w-full h-10;
+    content: 'Read more';
+    background: linear-gradient(to top, var(--secondary-background) 50%, transparent)
+}
+
+.admin-home-inner .messages-container .messages-list .message-item.seen .message-content.fade::after {
+    @apply absolute flex items-center justify-center text-teal-color bottom-0 w-full h-10 transition-all duration-300 font-semibold;
+    content: '';
+    background: linear-gradient(to top, var(--tertiary-background-reverse), transparent)
+}
+
+.admin-home-inner .messages-container .messages-list .message-item.seen:hover .message-content.fade::after {
+    @apply absolute bottom-0 w-full h-10;
+    content: 'Read more';
+    background: linear-gradient(to top, var(--tertiary-background-reverse) 50%, transparent)
+}
+
+/* loader */
+
+.admin-home-inner .messages-container .messages-list .message-item-loader {
+    @apply bg-secondary-background p-5 rounded-md shadow-md space-y-2 transition-all duration-300 cursor-pointer;
+}
+
+.admin-home-inner .messages-container .messages-list .message-item-loader strong {
+    @apply text-teal-color text-xl bg-primary-background min-w-8.5 h-8.5 rounded-full p-3;
+    animation: shimmer 1.2s infinite
+}
+
+.admin-home-inner .messages-container .messages-list .sender-name-loader {
+    @apply bg-primary-background min-w-2/4 rounded-full h-5;
+    animation: shimmer 1.2s infinite
+}
+
+.admin-home-inner .messages-container .messages-list .message-item-loader .message-content-loader, .admin-home-inner .messages-container .messages-list .message-item-loader .message-sender-loader {
+    @apply flex gap-3 items-center;
+}
+
+.admin-home-inner .messages-container .messages-list .message-item-loader .message-content-loader .message-loader {
+    @apply w-full flex flex-col gap-2
+}
+
+.admin-home-inner .messages-container .messages-list .message-item-loader .message-content-loader .message-loader .content-placeholder {
+    @apply min-w-full h-5 rounded-full bg-primary-background;
+    animation: shimmer 1.2s infinite;
+}
+
+.admin-home-inner .messages-container .messages-list .message-item-loader .message-content-loader .message-loader .content-placeholder:nth-child(2) {
+    @apply w-3/4 min-w-0;
+}
+
+.admin-home-inner .messages-container .messages-list .message-item-loader .message-content-loader .message-loader .content-placeholder:nth-child(3) {
+    @apply w-2/4 min-w-0;
+}
+
+@keyframes shimmer {
+    0% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.4;
+    }
 }
