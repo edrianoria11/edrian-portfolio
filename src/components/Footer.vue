@@ -3,7 +3,7 @@
     <div class="footer-inner">
       <div class="footer-section-1">
         <div class="footer-section-1-1">
-          <p>Navigation</p>
+          <p>Quick Links</p>
           <ul class="nav-item-list">
             <li class="nav-item">
               <a href="#home-section" class="nav-link">Home</a>
