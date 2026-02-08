@@ -477,17 +477,31 @@
             <h1 class="text-6xl md:text-7xl">Let's Connect</h1>
           </div>
           <div class="connect-section-2">
-            <form class="connect-form" @submit.prevent>
+            <form class="connect-form" @submit.prevent="sendMessage">
               <h3 class="form-title">Send me a <span>message</span></h3>
+              <div
+                v-if="successMessage || errorMessage"
+                :class="{ 'alert-danger': errorMessage, 'alert-success': successMessage }"
+                class="alert"
+              >
+                <p class="alert-message">
+                  {{ successMessage || errorMessage || '' }}
+                </p>
+              </div>
               <div class="input-wrapper">
-                <input type="text" id="email" required />
+                <input type="text" id="email" required v-model.trim="email" />
                 <label for="email">Email</label>
               </div>
               <div class="input-wrapper">
                 <textarea id="message" v-model="message" required></textarea>
                 <label for="message">Write a message</label>
               </div>
-              <button class="btn">Send Message <i class="bi bi-send"></i></button>
+              <button class="btn" :disabled="isSendingMessage">
+                <i v-if="isSendingMessage" class="fa-solid fa-spinner"></i>
+                <span v-else class="flex items-center gap-3"
+                  >Send Message <i class="bi bi-send"></i
+                ></span>
+              </button>
             </form>
           </div>
         </div>
@@ -501,19 +515,17 @@
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import { ref, onMounted, watch } from 'vue'
+import { supabase } from '@/supabase/supabaseclient'
 
 let currentSection = ref()
 let activeSkillCategory = ref('Tech Skills')
 let activeProjectCategory = ref()
-let message = ref()
+const isSendingMessage = ref(false)
+const errorMessage = ref('')
+const successMessage = ref('')
 
-watch(currentSection, (newSection) => {
-  console.log(newSection)
-})
-
-watch(activeProjectCategory, (newCategory) => {
-  console.log(newCategory)
-})
+const email = ref('')
+const message = ref('')
 
 const navItems = [
   { name: 'home-section', label: 'Home', icon: 'bi bi-house-door' },
@@ -522,6 +534,37 @@ const navItems = [
   { name: 'projects-section', label: 'Projects', icon: 'bi bi-archive' },
   { name: 'connect-section', label: 'Connect', icon: 'bi bi-envelope' },
 ]
+
+function endProcess() {
+  isSendingMessage.value = false
+  email.value = ''
+  message.value = ''
+
+  setTimeout(() => {
+    errorMessage.value = ''
+    successMessage.value = ''
+  }, 3000)
+}
+
+async function sendMessage() {
+  try {
+    isSendingMessage.value = true
+
+    const { error } = await supabase.from('messages').insert({
+      email: email.value,
+      message: message.value,
+    })
+
+    if (error) throw error
+
+    successMessage.value = 'Message has been sent successfully!'
+  } catch (error) {
+    errorMessage.value = 'An error occurred while sending message.'
+    console.error('Send message error: ', error)
+  } finally {
+    endProcess()
+  }
+}
 
 onMounted(() => {
   document.addEventListener('click', (e) => {
