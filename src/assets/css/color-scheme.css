@@ -2,12 +2,16 @@
     :root{
         --primary-black-background: #222831;
         --secondary-black-background: #393E46;
-        --primary-white-background: #FFF;
-        --secondary-white-background: #f8f6f6;
-        --primary-text-white: #FFF;
-        --secondary-text-white: #DDDDDD;
-        --primary-text-black: #222831;
-        --secondary-text-black: #393E46;
+        --tertiary-black-background: #464C57;
+        --primary-white-background: #E9EAF0;
+        --secondary-white-background: #FFFFFF;
+        --tertiary-white-background: #EFEFF3;
+        --primary-text-white: #FFFFFF;
+        --secondary-text-white: #F5F5F5;
+        --tertiary-text-white: #EFEFF3;
+        --primary-text-black: #0F0F0F;
+        --secondary-text-black: #3C3C3C;
+        --tertiary-text-black: #464C57;
         --teal-color-palette: #00ADB5;
         --teal-color-dark-palette: #166b6e;
     }
@@ -19,6 +23,14 @@
 
 @utility bg-secondary-background {
     background-color: var(--secondary-background);
+}
+
+@utility bg-tertiary-background {
+    background-color: var(--tertiary-background);
+}
+
+@utility bg-tertiary-background-reverse {
+    background-color: var(--tertiary-background-reverse);
 }
 
 @utility bg-teal {
@@ -56,6 +68,8 @@
 [color-scheme="dark"] {
     --primary-background: var(--primary-black-background);
     --secondary-background: var(--secondary-black-background);
+    --tertiary-background: var(--tertiary-white-background);
+    --tertiary-background-reverse: var(--tertiary-black-background);
     --primary-text: var(--primary-text-white);
     --primary-text-reverse: var(--primary-text-black);
     --secondary-text: var(--secondary-text-white);
@@ -66,6 +80,8 @@
 [color-scheme="light"] {
     --primary-background: var(--primary-white-background);
     --secondary-background: var(--secondary-white-background);
+    --tertiary-background: var(--tertiary-black-background);
+    --tertiary-background-reverse: var(--tertiary-white-background);
     --primary-text: var(--primary-text-black);
     --primary-text-reverse: var(--primary-text-white);
     --secondary-text: var(--secondary-text-black);
