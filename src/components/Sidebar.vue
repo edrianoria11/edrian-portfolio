@@ -51,9 +51,9 @@ const isSidebarOpen = ref(false)
 
 const navItems = ref([
   { name: 'admin-dashboard', label: 'Dashboard', icon: 'bi bi-house-door' },
-  { name: 'admin-projects', label: 'Projects', icon: 'bi bi-archive' },
   { name: 'admin-skills', label: 'Skills', icon: 'fa-solid fa-brain' },
   { name: 'admin-tools', label: 'Tools', icon: 'bi bi-wrench-adjustable' },
+  { name: 'admin-projects', label: 'Projects', icon: 'bi bi-archive' },
 ])
 
 function logout() {
