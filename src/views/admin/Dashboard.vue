@@ -6,6 +6,13 @@
         <h2 class="section-title">Admin <span>Dashboard</span></h2>
         <div class="messages-container">
           <div class="container-header">
+            <div
+              v-if="successMessage || errorMessage"
+              :class="{ 'alert-danger': errorMessage, 'alert-success': successMessage }"
+              class="alert"
+            >
+              <p class="alert-message">{{ successMessage || errorMessage || '' }}</p>
+            </div>
             <h3 class="container-title">Messages</h3>
             <div class="container-header-inner">
               <div class="flex items-center gap-3">
@@ -24,8 +31,14 @@
               <div class="input-wrapper">
                 <input type="text" id="search" v-model.trim="searchInput" />
                 <label :class="{ active: searchInput === '' }" for="search"
-                  >Search something here...</label
+                  >Search something...</label
                 >
+                <button
+                  @click.prevent="fetchMessages(selectedFilterItems, sortInput, searchInput)"
+                  class="search-button bg-teal absolute right-0 h-full px-3 text-white hover:bg-teal-dark transition-all duration-300 cursor-pointer"
+                >
+                  <i class="bi bi-search"></i>
+                </button>
               </div>
             </div>
           </div>
@@ -105,23 +118,78 @@
             @click="isMessageModalActive = !isMessageModalActive"
             class="bi bi-x modal-close-btn"
           ></i>
-          <h3 class="modal-title">Modal <span>Title</span></h3>
+          <h3 :class="{ active: !isReplyMode }" class="modal-title">
+            Message <span>Content</span>
+          </h3>
+          <h3 :class="{ active: isReplyMode }" class="modal-title">Send a <span>Message</span></h3>
         </div>
-        <div class="message-content">
-          <div class="form-group">
-            <i class="bi bi-person"></i>
-            <p class="sender-email">{{ selectedMessageValues.email }}</p>
+        <div class="modal-content-wrapper">
+          <div :class="{ active: !isReplyMode }" class="message-content">
+            <div class="form-group">
+              <i class="bi bi-person"></i>
+              <p class="sender-email">{{ selectedMessageValues.email }}</p>
+            </div>
+            <div class="form-group">
+              <i class="bi bi-envelope"></i>
+              <p class="sender-message">
+                {{ selectedMessageValues.message }}
+              </p>
+            </div>
+            <div class="actions">
+              <button
+                @click.prevent="isReplyMode = !isReplyMode"
+                class="btn reply-button bg-teal text-white"
+              >
+                Reply
+              </button>
+              <button
+                @click.prevent="isDeleteDialogOpen = !isDeleteDialogOpen"
+                class="btn delete-button bg-red-500 text-white"
+              >
+                Delete
+              </button>
+            </div>
           </div>
-          <div class="form-group">
-            <i class="bi bi-envelope"></i>
-            <p class="sender-message">
-              {{ selectedMessageValues.message }}
-            </p>
-          </div>
-          <div class="actions">
-            <button class="btn reply-button bg-teal text-white">Reply</button>
-            <button class="btn delete-button bg-red-500 text-white">Delete</button>
-          </div>
+          <form
+            method="post"
+            :class="{ active: isReplyMode }"
+            @submit.prevent="sendEmail"
+            class="reply-form"
+          >
+            <div class="input-wrapper active">
+              <input type="text" id="receiver" readonly :value="selectedMessageValues.email" />
+              <label for="receiver">To</label>
+            </div>
+            <div class="input-wrapper">
+              <input type="text" id="subject" v-model="subjectInput" required />
+              <label for="subject">Subject</label>
+            </div>
+            <div class="input-wrapper">
+              <textarea id="message" v-model="senderMessage" required></textarea>
+              <label for="message">Message</label>
+            </div>
+            <div class="actions">
+              <button class="btn">
+                <i v-if="isSendEmailLoading" class="fa fa-spinner"></i>
+                <span v-else class="button-text">Send Message</span>
+              </button>
+              <button @click.prevent="isReplyMode = !isReplyMode" class="btn">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div :class="{ active: isDeleteDialogOpen }" class="confirmation-dialog">
+      <div class="confirmation-dialog-inner">
+        <p class="dialog">Are you sure you want to delete this?</p>
+        <div class="actions">
+          <button @click.prevent="deleteMessage" class="btn">
+            <i v-if="isDeleteLoading" class="fa-solid fa-spinner"></i>
+            <span v-else class="button-text">Confirm</span>
+          </button>
+          <button @click.prevent="isDeleteDialogOpen = !isDeleteDialogOpen" class="btn">
+            Cancel
+          </button>
         </div>
       </div>
     </div>
@@ -130,6 +198,7 @@
 
 <script setup>
 import Sidebar from '@/components/Sidebar.vue'
+import axios from 'axios'
 import { ref, onMounted, watch, reactive, nextTick } from 'vue'
 import { supabase } from '@/supabase/supabaseclient'
 
@@ -137,6 +206,10 @@ const currentSection = ref()
 const isFilterOpen = ref(false)
 const isMessageLoading = ref(false)
 const isMessageModalActive = ref(false)
+const isDeleteDialogOpen = ref(false)
+const isDeleteLoading = ref(false)
+const isSendEmailLoading = ref(false)
+const isReplyMode = ref(false)
 const errorMessage = ref('')
 const successMessage = ref('')
 
@@ -144,6 +217,10 @@ const sortInput = ref('sort by')
 const searchInput = ref('')
 const selectedFilterItems = ref([])
 const messages = ref([])
+
+const receiverEmail = ref('')
+const subjectInput = ref('')
+const senderMessage = ref('')
 
 const selectedMessageValues = reactive({
   id: '',
@@ -163,12 +240,9 @@ const filterItems = [
   },
 ]
 
-watch(
-  [selectedFilterItems, searchInput, sortInput],
-  ([newSelectedFilterItems, newSearchInput, newSortInput]) => {
-    fetchMessages(newSelectedFilterItems, newSortInput, newSearchInput)
-  },
-)
+watch([selectedFilterItems, sortInput], ([newSelectedFilterItems, newSortInput]) => {
+  fetchMessages(newSelectedFilterItems, newSortInput, searchInput.value)
+})
 
 watch(messages, async () => {
   await nextTick()
@@ -189,11 +263,17 @@ watch(messages, async () => {
 function resetValues() {
   sortInput.value = 'sort by'
   searchInput.value = ''
-  selectedSortItems.value = ref([])
+  selectedFilterItems.value = ref([])
+
+  fetchMessages(selectedFilterItems.value, sortInput.value, searchInput.value)
 }
 
 function endProcess() {
   isMessageLoading.value = false
+  isDeleteLoading.value = false
+  isMessageModalActive.value = false
+  isDeleteDialogOpen.value = false
+  isSendEmailLoading.value = false
   setTimeout(() => {
     errorMessage.value = ''
     successMessage.value = ''
@@ -251,6 +331,61 @@ async function fetchMessages(filter, sort, search, useMessageLoader) {
   } catch (error) {
     errorMessage.value = 'An error occurred while fetching all messages.'
     console.error('Messages fetching error: ', error)
+  } finally {
+    endProcess()
+  }
+}
+
+async function deleteMessage() {
+  try {
+    isDeleteLoading.value = true
+    const message_id = selectedMessageValues.id
+
+    const { error: deleteMessageError } = await supabase
+      .from('messages')
+      .delete()
+      .eq('message_id', message_id)
+
+    if (deleteMessageError) throw deleteMessageError
+
+    successMessage.value = 'Message has been deleted successfully!'
+    fetchMessages(selectedFilterItems.value, sortInput.value, searchInput.value)
+  } catch (error) {
+    errorMessage.value = 'An error occurred while deleting the message.'
+    console.error('Delete message error: ', error)
+  } finally {
+    endProcess()
+  }
+}
+
+async function sendEmail() {
+  try {
+    receiverEmail.value = selectedMessageValues.email
+    isSendEmailLoading.value = true
+    console.log(import.meta.env.VITE_EMAIL_SENDER_API_KEY)
+    const res = await axios.post(
+      'http://127.0.0.1:5001/api/email/',
+      {
+        email: receiverEmail.value,
+        subject: subjectInput.value,
+        message: senderMessage.value,
+      },
+      {
+        headers: {
+          'X-API-KEY': import.meta.env.VITE_EMAIL_SENDER_API_KEY,
+        },
+      },
+    )
+
+    if (res.data.error) throw res.data.error
+
+    successMessage.value = res.data.message
+
+    subjectInput.value = ''
+    senderMessage.value = ''
+  } catch (error) {
+    errorMessage.value = 'An error occurred while sending an email.'
+    console.error('Send email error: ', error)
   } finally {
     endProcess()
   }
