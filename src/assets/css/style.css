@@ -69,7 +69,7 @@
 }
 
 .btn {
-    @apply w-fit mt-5 rounded-md px-4 py-2 transition-colors duration-300 font-semibold disabled:cursor-not-allowed disabled:bg-teal-dark min-w-50;
+    @apply w-fit mt-5 rounded-md px-4 py-2 transition-colors duration-300 font-semibold disabled:cursor-not-allowed disabled:bg-teal-dark min-w-50 text-nowrap;
 }
 
 .nav-item-list, .social-link-list {
@@ -105,7 +105,7 @@
     @apply absolute left-3 top-3.5 transition-all duration-200 text-gray-500
 }
 
-.input-wrapper:focus-within label, .input-wrapper input:valid ~ label, .input-wrapper textarea:valid ~ label {
+.input-wrapper:focus-within label, .input-wrapper.active label, .input-wrapper input:valid ~ label, .input-wrapper textarea:valid ~ label {
     @apply top-1 text-xs text-teal-color
 }
 
@@ -134,11 +134,11 @@
 }
 
 .modal .modal-inner {
-    @apply bg-secondary-background w-3/4 flex flex-col gap-5 p-5 rounded-xl min-w-85
+    @apply bg-secondary-background w-3/4 flex flex-col gap-5 p-5 rounded-xl min-w-85 shadow-md
 }
 
 .modal .modal-inner .modal-header {
-    @apply flex flex-col
+    @apply flex flex-col relative overflow-clip h-8
 }
 
 .modal .modal-inner .modal-header .modal-close-btn {
@@ -146,11 +146,48 @@
 }
 
 .modal .modal-inner .modal-header .modal-title {
-    @apply text-2xl sm:text-3xl
+    @apply text-2xl sm:text-3xl transition-all duration-300
+}
+
+.modal .modal-inner .modal-header .modal-title:nth-child(2) {
+    @apply absolute top-[-100%]
+}
+
+.modal .modal-inner .modal-header .modal-title:nth-child(2).active {
+    @apply absolute top-0
+}
+
+
+.modal .modal-inner .modal-header .modal-title:nth-child(3) {
+    @apply absolute bottom-[-100%]
+}
+
+.modal .modal-inner .modal-header .modal-title:nth-child(3).active {
+    @apply absolute bottom-0
 }
 
 .modal .modal-inner .modal-title span {
     @apply text-teal-color
+}
+
+.modal .modal-inner .modal-content-wrapper {
+    @apply relative w-full flex items-center justify-center overflow-clip h-110
+}
+
+.modal .modal-inner .modal-content-wrapper .message-content {
+    @apply absolute left-[-200%] transition-all duration-300 max-w-200
+}
+
+.modal .modal-inner .modal-content-wrapper .message-content.active {
+    @apply absolute left-0 max-w-none
+}
+
+.modal .modal-inner .modal-content-wrapper .reply-form {
+    @apply absolute left-[200%] transition-all duration-300
+}
+
+.modal .modal-inner .modal-content-wrapper .reply-form.active {
+    @apply absolute left-0
 }
 
 .modal .modal-inner .message-content {
@@ -178,7 +215,7 @@
 }
 
 .modal .modal-inner .message-content .actions .btn {
-    @apply m-0 w-30 min-w-0
+    @apply m-0 w-30 min-w-0 h-10
 }
 
 .modal .modal-inner .message-content .form-group:nth-child(2) {
@@ -186,7 +223,7 @@
 }
 
 .modal .modal-inner .message-content .sender-message {
-    @apply overflow-y-auto max-h-90
+    @apply overflow-y-auto max-h-83.5 min-h-83.5
 }
 
 .modal .modal-inner .message-content .sender-message::-webkit-scrollbar {
@@ -203,4 +240,69 @@
 
 .modal .modal-inner .message-content .actions .delete-button {
     @apply bg-red-500 text-white hover:bg-red-800
+}
+
+.modal .modal-inner .modal-content-wrapper .reply-form .input-wrapper textarea {
+    @apply overflow-y-auto max-h-50 min-h-50
+}
+
+.modal .modal-inner .modal-content-wrapper .reply-form .input-wrapper textarea::-webkit-scrollbar {
+    @apply w-1.5
+}
+
+.modal .modal-content-wrapper .reply-form .input-wrapper textarea::-webkit-scrollbar-thumb {
+    @apply bg-teal-dark rounded-full
+}
+
+.modal .modal-inner .modal-content-wrapper .reply-form {
+    @apply flex flex-col gap-3 w-full
+}
+
+.modal .modal-inner .modal-content-wrapper .reply-form .actions {
+    @apply mt-3 flex items-center gap-3
+}
+
+.modal .modal-inner .modal-content-wrapper .reply-form .actions .btn {
+    @apply m-0 flex items-center justify-center text-white min-w-0 w-full max-w-40 h-10
+}
+
+.modal .modal-inner .modal-content-wrapper .reply-form .actions .btn:nth-child(1) {
+    @apply bg-teal hover:bg-teal-dark
+}
+
+.modal .modal-inner .modal-content-wrapper .reply-form .actions .btn:nth-child(2) {
+    @apply bg-teal hover:bg-teal-dark
+}
+
+.confirmation-dialog {
+    @apply fixed top-0 h-screen w-screen flex items-center justify-center opacity-0 transition-all duration-300 pointer-events-none;
+    background-color: rgba(0,0,0,0.10)
+}
+
+.confirmation-dialog.active {
+    @apply opacity-100 pointer-events-auto
+}
+
+.confirmation-dialog .confirmation-dialog-inner {
+    @apply bg-secondary-background rounded-lg shadow-md min-w-85 max-w-100 flex flex-col items-center gap-7.5 py-5
+}
+
+.confirmation-dialog .confirmation-dialog-inner .dialog {
+    @apply  text-center
+}
+
+.confirmation-dialog .confirmation-dialog-inner .actions {
+    @apply  flex gap-5
+}
+
+.confirmation-dialog .confirmation-dialog-inner .actions .btn {
+    @apply  m-0 flex items-center justify-center min-w-0 w-25 text-white cursor-pointer
+}
+
+.confirmation-dialog .confirmation-dialog-inner .actions .btn:nth-child(1) {
+    @apply  bg-red-500 hover:bg-red-700
+}
+
+.confirmation-dialog .confirmation-dialog-inner .actions .btn:nth-child(2) {
+    @apply  bg-teal hover:bg-teal-dark
 }
