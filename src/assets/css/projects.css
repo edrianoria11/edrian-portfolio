@@ -40,11 +40,15 @@
 }
 
 .projects-inner .projects-container .project-categories .category-item .category-item-image {
-    @apply flex items-center justify-center bg-secondary-background w-full
+    @apply flex items-center justify-center bg-secondary-background w-full transition-all duration-300
 }
 
 .projects-inner .projects-container .project-categories .category-item .category-item-image img {
     @apply w-full h-full object-contain;
+}
+
+.projects-inner .projects-container .project-categories .category-item:hover .category-item-image {
+    @apply scale-110
 }
 
 .projects-inner .projects-container .project-categories .category-item .category-item-body {
