@@ -51,7 +51,7 @@
 }
 
 .tools-inner .carousel .group .card {
-    @apply flex flex-col p-3 overflow-clip rounded-md  shadow-md bg-secondary-background shrink-0 grow-0 w-35 sm:w-50 relative
+    @apply flex flex-col p-3 overflow-clip rounded-md  shadow-md bg-[var(--secondary-white-background)] shrink-0 grow-0 w-35 sm:w-50 relative
 }
 
 .tools-inner .carousel .group .card:hover .card-body {
