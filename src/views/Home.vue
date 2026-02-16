@@ -117,7 +117,7 @@
           <div class="project-categories active">
             <div class="category-item" data-category="category-1">
               <div class="category-item-image">
-                <img src="@/assets/images/placeholder-image.png" alt="" />
+                <img src="/files/images/Web-app-bg-image.png" alt="Web application category" />
               </div>
               <div class="category-item-body">
                 <h6 class="category-title">Web Applications</h6>
@@ -128,7 +128,10 @@
             </div>
             <div class="category-item" data-category="category-2">
               <div class="category-item-image">
-                <img src="@/assets/images/placeholder-image.png" alt="" />
+                <img
+                  src="/files/images/Graphic-design-bg-image.png"
+                  alt="Graphic design category"
+                />
               </div>
               <div class="category-item-body">
                 <h6 class="category-title">Graphic Designs</h6>
@@ -139,7 +142,7 @@
             </div>
             <div class="category-item" data-category="category-3">
               <div class="category-item-image">
-                <img src="@/assets/images/placeholder-image.png" alt="" />
+                <img src="/files/images/Others-bg-image.png" alt="Other projects category" />
               </div>
               <div class="category-item-body">
                 <h6 class="category-title">Other Projects</h6>
