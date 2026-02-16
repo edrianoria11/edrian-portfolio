@@ -179,15 +179,3 @@
 .admin-home-inner .messages-container .messages-list .message-item-loader .message-content-loader .message-loader .content-placeholder:nth-child(3) {
     @apply w-2/4 min-w-0;
 }
-
-@keyframes shimmer {
-    0% {
-        opacity: 0.4;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0.4;
-    }
-}

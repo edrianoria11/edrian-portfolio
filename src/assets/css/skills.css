@@ -83,8 +83,7 @@
 }
 
 .skills-inner .skills-list-container .skills-list .skill-item {
-    @apply flex items-center gap-5 p-3 px-5 hover:bg-secondary-background hover:scale-105 rounded-md transition-all duration-300 min-w-[250px] text-primary shadow-md bg-secondary-background;
-    outline: 1px solid transparent;
+    @apply flex items-center gap-5 p-3 px-5 hover:bg-secondary-background hover:scale-105 rounded-md transition-all duration-300 min-w-[250px] text-primary shadow-md bg-secondary-background outline-1 outline-transparent;
 }
 
 .skills-list .skill-item .skill-icon {

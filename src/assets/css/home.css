@@ -26,7 +26,9 @@
 }
 
 .home-inner .section-1 {
-    @apply flex flex-col justify-center space-y-1 text-center md:text-left
+    @apply flex flex-col justify-center space-y-1 text-center md:text-left;
+    animation: slide-from-left 1s forwards;
+
 }
 
 .home-inner .section-1 .text-1 {
@@ -37,8 +39,13 @@
     @apply text-base text-secondary font-medium
 }
 
-.home-inner .section-1 h1 {
-    @apply text-teal-color text-nowrap
+.home-inner .section-1 .animation-wrapper {
+    @apply relative overflow-y-clip max-h-fit
+}
+
+.home-inner .section-1 .animation-wrapper .animation-header {
+    @apply text-teal-color text-nowrap text-3xl sm:text-5xl;
+    animation: scroll-up 2s infinite;
 }
 
 .home-inner .section-1 .btn {
@@ -54,7 +61,8 @@
 }
 
 .home-inner .section-2 {
-    @apply flex items-center justify-center md:justify-end
+    @apply flex items-center justify-center md:justify-end;
+    animation: slide-from-right 1s forwards;
 }
 
 .home-inner .section-2 .image-container {

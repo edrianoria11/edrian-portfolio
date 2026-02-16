@@ -11,6 +11,7 @@
 @import '@/assets/css/login.css';
 @import '@/assets/css/admin-dashboard.css';
 @import '@/assets/css/sidebar.css';
+@import '@/assets/css/animation.css';
 
 @layer base {
     html {
@@ -66,6 +67,12 @@
 
 .main-container {
     @apply relative py-10 md:pt-0
+}
+
+.section-title {
+    /* animation: slide-from-top forwards;
+    animation-timeline: scroll();
+    animation-range-start: -2000px; */
 }
 
 .btn {
