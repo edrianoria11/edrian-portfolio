@@ -7,7 +7,9 @@
       <div class="home-inner">
         <div class="section-1">
           <p class="text-1">Hello, I'm</p>
-          <h1>Edrian Oria</h1>
+          <div class="animation-wrapper">
+            <h1 class="animation-header">Edrian Oria</h1>
+          </div>
           <p class="text-2">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, deleniti.
           </p>
@@ -31,7 +33,12 @@
     </div>
     <div id="skills-section">
       <div class="skills-inner">
-        <h2 class="section-title">My <span>Skills</span></h2>
+        <h2
+          :class="{ 'slide-from-top': currentSection === 'skills-section' }"
+          class="section-title"
+        >
+          My <span>Skills</span>
+        </h2>
         <div class="skills-list-container">
           <div class="skills-categories">
             <ul class="category-list">
@@ -45,172 +52,13 @@
               class="skills-list-wrapper-inner tech"
             >
               <div class="skills-list">
-                <div class="skill-item">
+                <div v-for="skillItem in techSkills" class="skill-item" :key="skillItem.id">
                   <div class="skill-icon">
-                    <img src="/files/images/Vuejs.png" alt="" />
+                    <img :src="skillItem.skillImage" :alt="skillItem.alt" />
                   </div>
                   <div class="skill-body">
-                    <h6 class="skill-title">Vuejs</h6>
-                    <p class="experience">Familiar</p>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <img src="/files/images/JavaScript.png" alt="" />
-                  </div>
-                  <div class="skill-body">
-                    <h6 class="skill-title">JavaScript</h6>
-                    <p class="experience">Familiar</p>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <img src="/files/images/HTML5.png" alt="" />
-                  </div>
-                  <div class="skill-body">
-                    <h6 class="skill-title">HTML</h6>
-                    <p class="experience">Proficient</p>
-                  </div>
-                </div>
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <img src="/files/images/CSS3.png" alt="" />
-                  </div>
-                  <div class="skill-body">
-                    <h6 class="skill-title">CSS</h6>
-                    <p class="experience">Proficient</p>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <img src="/files/images/Codeigniter3.png" alt="" />
-                  </div>
-                  <div class="skill-body">
-                    <h6 class="skill-title">PHP Codeigniter 3</h6>
-                    <p class="experience">Familiar</p>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <img src="/files/images/PythonFlask.png" alt="" />
-                  </div>
-                  <div class="skill-body">
-                    <h6 class="skill-title">Python Flask</h6>
-                    <p class="experience">Working Knowledge</p>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <img src="/files/images/Csharp.png" alt="" />
-                  </div>
-                  <div class="skill-body">
-                    <h6 class="skill-title">C SHARP</h6>
-                    <p class="experience">Familiar</p>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <img src="/files/images/Tailwindcss.png" alt="" />
-                  </div>
-                  <div class="skill-body">
-                    <h6 class="skill-title">Tailwind CSS</h6>
-                    <p class="experience">Working Knowledge</p>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <img src="/files/images/Bootstrap.png" alt="" />
-                  </div>
-                  <div class="skill-body">
-                    <h6 class="skill-title">Bootstrap</h6>
-                    <p class="experience">Working Knowledge</p>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <img src="/files/images/Supabase.png" alt="" />
-                  </div>
-                  <div class="skill-body">
-                    <h6 class="skill-title">Supabase</h6>
-                    <p class="experience">Familiar</p>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <img src="/files/images/PostgreSQL.png" alt="" />
-                  </div>
-                  <div class="skill-body">
-                    <h6 class="skill-title">PostgreSQL</h6>
-                    <p class="experience">Working Knowledge</p>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <img src="/files/images/MySQL.png" alt="" />
-                  </div>
-                  <div class="skill-body">
-                    <h6 class="skill-title">MySQL</h6>
-                    <p class="experience">Working Knowledge</p>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <img src="/files/images/Git-Github.png" alt="" />
-                  </div>
-                  <div class="skill-body">
-                    <h6 class="skill-title">Git / Github</h6>
-                    <p class="experience">Familiarity</p>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <img src="/files/images/Photoshop.png" alt="" />
-                  </div>
-                  <div class="skill-body">
-                    <h6 class="skill-title">Photoshop</h6>
-                    <p class="experience">Familiarity</p>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <img src="/files/images/Canva.png" alt="" />
-                  </div>
-                  <div class="skill-body">
-                    <h6 class="skill-title">Canva</h6>
-                    <p class="experience">Working Knowledge</p>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <img src="/files/images/MSOffice.png" alt="" />
-                  </div>
-                  <div class="skill-body">
-                    <h6 class="skill-title">MS Office</h6>
-                    <p class="experience">Working Knowledge</p>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <img src="/files/images/GoogleWorkspace.png" alt="" />
-                  </div>
-                  <div class="skill-body">
-                    <h6 class="skill-title">Google Workspace</h6>
-                    <p class="experience">Working Knowledge</p>
+                    <h6 class="skill-title">{{ skillItem.skillName }}</h6>
+                    <p class="experience">{{ skillItem.experience }}</p>
                   </div>
                 </div>
               </div>
@@ -221,27 +69,9 @@
               class="skills-list-wrapper-inner soft"
             >
               <div class="skills-list">
-                <div class="skill-item">
+                <div v-for="skillItem in softSkills" class="skill-item" :key="skillItem.id">
                   <div class="skill-body">
-                    <h6 class="skill-title">Willingness to Learn</h6>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="skill-body">
-                    <h6 class="skill-title">Adaptability</h6>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="skill-body">
-                    <h6 class="skill-title">Attention to Detail</h6>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="skill-body">
-                    <h6 class="skill-title">Ownership & Responsibility</h6>
+                    <h6 class="skill-title">{{ skillItem.skillName }}</h6>
                   </div>
                 </div>
               </div>
@@ -256,104 +86,23 @@
         <div class="tools-container">
           <div class="carousel">
             <div class="group">
-              <div class="card">
+              <div v-for="tool in tools" class="card" :key="tool.id">
                 <div class="card-image-container">
-                  <img src="@/assets/images/placeholder-image.png" alt="" />
+                  <img :src="tool.toolImage" alt="" />
                 </div>
                 <div class="card-body">
-                  <h6 class="card-title">Visual Studio Code</h6>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-image-container">
-                  <img src="@/assets/images/placeholder-image.png" alt="" />
-                </div>
-                <div class="card-body">
-                  <h6 class="card-title">XAMPP</h6>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-image-container">
-                  <img src="@/assets/images/placeholder-image.png" alt="" />
-                </div>
-                <div class="card-body">
-                  <h6 class="card-title">Git</h6>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-image-container">
-                  <img src="@/assets/images/placeholder-image.png" alt="" />
-                </div>
-                <div class="card-body">
-                  <h6 class="card-title">GitHub</h6>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-image-container">
-                  <img src="@/assets/images/placeholder-image.png" alt="" />
-                </div>
-                <div class="card-body">
-                  <h6 class="card-title">Canva</h6>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-image-container">
-                  <img src="@/assets/images/placeholder-image.png" alt="" />
-                </div>
-                <div class="card-body">
-                  <h6 class="card-title">MS Office</h6>
+                  <h6 class="card-title">{{ tool.toolName }}</h6>
                 </div>
               </div>
             </div>
 
             <div aria-hidden class="group">
-              <div class="card">
+              <div v-for="tool in tools" class="card" :key="tool.id">
                 <div class="card-image-container">
-                  <img src="@/assets/images/placeholder-image.png" alt="" />
+                  <img :src="tool.toolImage" alt="" />
                 </div>
                 <div class="card-body">
-                  <h6 class="card-title">Tool Name 1</h6>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-image-container">
-                  <img src="@/assets/images/placeholder-image.png" alt="" />
-                </div>
-                <div class="card-body">
-                  <h6 class="card-title">Tool Name 2</h6>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-image-container">
-                  <img src="@/assets/images/placeholder-image.png" alt="" />
-                </div>
-                <div class="card-body">
-                  <h6 class="card-title">Tool Name 3</h6>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-image-container">
-                  <img src="@/assets/images/placeholder-image.png" alt="" />
-                </div>
-                <div class="card-body">
-                  <h6 class="card-title">Tool Name 4</h6>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-image-container">
-                  <img src="@/assets/images/placeholder-image.png" alt="" />
-                </div>
-                <div class="card-body">
-                  <h6 class="card-title">Tool Name 5</h6>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-image-container">
-                  <img src="@/assets/images/placeholder-image.png" alt="" />
-                </div>
-                <div class="card-body">
-                  <h6 class="card-title">Tool Name 6</h6>
+                  <h6 class="card-title">{{ tool.toolName }}</h6>
                 </div>
               </div>
             </div>
@@ -527,6 +276,210 @@ const successMessage = ref('')
 const email = ref('')
 const message = ref('')
 
+const techSkills = [
+  {
+    id: '1',
+    skillImage: '/files/images/Vuejs.png',
+    skillName: 'Vuejs',
+    experience: 'Familiar',
+    alt: '',
+  },
+  {
+    id: '2',
+    skillImage: '/files/images/JavaScript.png',
+    skillName: 'JavaScript',
+    experience: 'Working Knowledge',
+    alt: '',
+  },
+  {
+    id: '3',
+    skillImage: '/files/images/HTML5.png',
+    skillName: 'HTML5',
+    experience: 'Working Knowledge',
+    alt: '',
+  },
+  {
+    id: '4',
+    skillImage: '/files/images/CSS3.png',
+    skillName: 'CSS3',
+    experience: 'Working Knowledge',
+    alt: '',
+  },
+  {
+    id: '5',
+    skillImage: '/files/images/Codeigniter3.png',
+    skillName: 'PHP Codeigniter 3',
+    experience: 'Familiar',
+    alt: '',
+  },
+  {
+    id: '6',
+    skillImage: '/files/images/PythonFlask.png',
+    skillName: 'Python Flask',
+    experience: 'Working Knowledge',
+    alt: '',
+  },
+  {
+    id: '7',
+    skillImage: '/files/images/Csharp.png',
+    skillName: 'C Sharp',
+    experience: 'Familiar',
+    alt: '',
+  },
+  {
+    id: '8',
+    skillImage: '/files/images/Tailwindcss.png',
+    skillName: 'Tailwind CSS',
+    experience: 'Working Knowledge',
+    alt: '',
+  },
+  {
+    id: '9',
+    skillImage: '/files/images/Bootstrap.png',
+    skillName: 'Bootstrap',
+    experience: 'Working Knowledge',
+    alt: '',
+  },
+  {
+    id: '10',
+    skillImage: '/files/images/Supabase.png',
+    skillName: 'Supabase',
+    experience: 'Familiar',
+    alt: '',
+  },
+  {
+    id: '11',
+    skillImage: '/files/images/PostgreSQL.png',
+    skillName: 'PostgreSQL',
+    experience: 'Working Knowledge',
+    alt: '',
+  },
+  {
+    id: '12',
+    skillImage: '/files/images/MySQL.png',
+    skillName: 'MySQL',
+    experience: 'Working Knowledge',
+    alt: '',
+  },
+  {
+    id: '13',
+    skillImage: '/files/images/Git-Github.png',
+    skillName: 'Git / Github',
+    experience: 'Familiar',
+    alt: '',
+  },
+  {
+    id: '14',
+    skillImage: '/files/images/Photoshop.png',
+    skillName: 'Photoshop',
+    experience: 'Familiar',
+    alt: '',
+  },
+  {
+    id: '15',
+    skillImage: '/files/images/Canva.png',
+    skillName: 'Canva',
+    experience: 'Familiar',
+    alt: '',
+  },
+  {
+    id: '16',
+    skillImage: '/files/images/MSOffice.png',
+    skillName: 'MS Office',
+    experience: 'Working Knowledge',
+    alt: '',
+  },
+  {
+    id: '17',
+    skillImage: '/files/images/GoogleWorkspace.png',
+    skillName: 'Google Workspace',
+    experience: 'Working Knowledge',
+    alt: '',
+  },
+]
+
+const softSkills = [
+  {
+    id: '1',
+    skillName: 'Willingness to learn',
+  },
+  {
+    id: '2',
+    skillName: 'Adaptability',
+  },
+  {
+    id: '3',
+    skillName: 'Attention to detail',
+  },
+  {
+    id: '4',
+    skillName: 'Ownership & Responsibility',
+  },
+]
+
+const tools = [
+  {
+    id: '1',
+    toolImage: '/files/images/VSCode.png',
+    toolName: 'Visual Studio Code',
+    alt: '',
+  },
+  {
+    id: '2',
+    toolImage: '/files/images/XAMPP.png',
+    toolName: 'XAMPP',
+    alt: '',
+  },
+  {
+    id: '3',
+    toolImage: '/files/images/Git.png',
+    toolName: 'Git',
+    alt: '',
+  },
+  {
+    id: '4',
+    toolImage: '/files/images/GitHub.png',
+    toolName: 'GitHub',
+    alt: '',
+  },
+  {
+    id: '5',
+    toolImage: '/files/images/Canva.png',
+    toolName: 'Canva',
+    alt: '',
+  },
+  {
+    id: '6',
+    toolImage: '/files/images/Photoshop.png',
+    toolName: 'Photoshop',
+    alt: '',
+  },
+  {
+    id: '7',
+    toolImage: '/files/images/MSOffice.png',
+    toolName: 'MS Office',
+    alt: '',
+  },
+  {
+    id: '8',
+    toolImage: '/files/images/GoogleWorkspace.png',
+    toolName: 'Google Workspace',
+    alt: '',
+  },
+  {
+    id: '9',
+    toolImage: '/files/images/Vercel.png',
+    toolName: 'Vercel',
+    alt: '',
+  },
+  {
+    id: '10',
+    toolImage: '/files/images/Render.png',
+    toolName: 'Render',
+    alt: '',
+  },
+]
+
 const navItems = [
   { name: 'home-section', label: 'Home', icon: 'bi bi-house-door' },
   { name: 'skills-section', label: 'Skills', icon: 'fa-solid fa-brain' },
@@ -636,6 +589,19 @@ onMounted(() => {
       activeSkillCategory.value = category
     }
   })
+
+  const header = document.querySelector('.animation-header')
+  const texts = ['Edrian Oria', 'Web Developer']
+  let index = 1
+
+  function changeText() {
+    if (!header) return
+
+    header.textContent = texts[index]
+    index = (index + 1) % texts.length
+  }
+
+  setInterval(changeText, 2000)
 })
 </script>
 
