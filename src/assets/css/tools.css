@@ -54,6 +54,11 @@
     @apply flex flex-col p-3 overflow-clip rounded-md  shadow-md bg-[var(--secondary-white-background)] shrink-0 grow-0 w-35 sm:w-50 relative
 }
 
+.carousel .group .card .card-body {
+    @apply absolute left-0 p-3 bottom-0 h-full w-full flex items-end opacity-0 transition-all delay-300 text-white;
+    background: linear-gradient(to top, var(--teal-color), transparent)
+}
+
 .tools-inner .carousel .group .card:hover .card-body {
     @apply opacity-100
 }
@@ -68,11 +73,6 @@
 
 .carousel .group .card .card-image-container img {
     @apply w-full object-cover
-}
-
-.carousel .group .card .card-body {
-    @apply absolute left-0 p-3 bottom-0 h-full w-full flex items-end opacity-0 transition-all delay-300 text-white;
-    background: linear-gradient(to top, var(--teal-color), transparent)
 }
 
 @keyframes marquee {

@@ -41,7 +41,7 @@
 }
 
 .scrollspy-nav .navbar {
-    @apply flex-col w-fit h-auto pointer-events-auto items-start z-10
+    @apply flex-col w-fit h-auto pointer-events-none items-start z-10
 }
 
 .scrollspy-nav .navbar .line {
@@ -75,7 +75,7 @@
 }
 
 .scrollspy-nav.active .navbar {
-    @apply flex-col w-full
+    @apply flex-col w-full pointer-events-auto
 }
 
 .scrollspy-nav.active .navbar .line {

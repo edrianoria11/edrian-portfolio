@@ -11,7 +11,11 @@
             <h1 class="animation-header">Edrian Oria</h1>
           </div>
           <p class="text-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, deleniti.
+            A recent information technology graduate with a passion for
+            <strong class="text-teal-color">web development</strong>. I will help to automate your
+            business with <strong class="text-teal-color">fast</strong>,
+            <strong class="text-teal-color">scalable</strong>, and
+            <strong class="text-teal-color">visually appealing</strong> websites.
           </p>
           <div
             class="flex flex-col sm:flex-row justify-center md:justify-start items-center sm:gap-4"
@@ -115,18 +119,18 @@
         <h2 class="section-title">My <span>Projects</span></h2>
         <div class="projects-container">
           <div class="project-categories active">
-            <div class="category-item" data-category="category-1">
+            <div class="category-item" data-category="Web Applications">
               <div class="category-item-image">
                 <img src="/files/images/Web-app-bg-image.png" alt="Web application category" />
               </div>
               <div class="category-item-body">
                 <h6 class="category-title">Web Applications</h6>
                 <p class="category-description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, incidunt?
+                  This category compiles all web applications that I've created.
                 </p>
               </div>
             </div>
-            <div class="category-item" data-category="category-2">
+            <div class="category-item" data-category="Graphic Designs">
               <div class="category-item-image">
                 <img
                   src="/files/images/Graphic-design-bg-image.png"
@@ -136,18 +140,18 @@
               <div class="category-item-body">
                 <h6 class="category-title">Graphic Designs</h6>
                 <p class="category-description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, incidunt?
+                  This category compiles all graphic designs that I've made.
                 </p>
               </div>
             </div>
-            <div class="category-item" data-category="category-3">
+            <div class="category-item" data-category="Others">
               <div class="category-item-image">
                 <img src="/files/images/Others-bg-image.png" alt="Other projects category" />
               </div>
               <div class="category-item-body">
                 <h6 class="category-title">Other Projects</h6>
                 <p class="category-description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, incidunt?
+                  This category shows unspecified projects that I've worked with.
                 </p>
               </div>
             </div>
@@ -278,6 +282,32 @@ const successMessage = ref('')
 
 const email = ref('')
 const message = ref('')
+
+watch(currentSection, (newSection) => {
+  const title = document.querySelector('title')
+  console.log(newSection)
+  title.textContent = 'Edrian Oria Portfolio'
+
+  if (newSection === 'home-section') {
+    title.textContent = 'Home | Edrian Oria Portfolio'
+  }
+
+  if (newSection === 'skills-section') {
+    title.textContent = 'Skills | Edrian Oria Portfolio'
+  }
+
+  if (newSection === 'tools-section') {
+    title.textContent = 'Tools | Edrian Oria Portfolio'
+  }
+
+  if (newSection === 'projects-section') {
+    title.textContent = 'Projects | Edrian Oria Portfolio'
+  }
+
+  if (newSection === 'connect-section') {
+    title.textContent = 'Connect | Edrian Oria Portfolio'
+  }
+})
 
 const techSkills = [
   {
@@ -604,7 +634,7 @@ onMounted(() => {
     index = (index + 1) % texts.length
   }
 
-  setInterval(changeText, 2000)
+  setInterval(changeText, 1995)
 })
 </script>
 

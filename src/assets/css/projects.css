@@ -16,7 +16,7 @@
 }
 
 .projects-inner .projects-container {
-    @apply flex flex-col items-center relative w-full justify-center overflow-clip h-130;
+    @apply flex flex-col items-center relative w-full justify-center overflow-clip h-130 2xl:h-150;
 }
 
 .projects-inner .projects-container .project-categories {
@@ -40,7 +40,7 @@
 }
 
 .projects-inner .projects-container .project-categories .category-item .category-item-image {
-    @apply flex items-center justify-center bg-secondary-background w-full transition-all duration-300
+    @apply flex items-center justify-center bg-secondary-background w-full transition-all duration-300 object-center object-cover
 }
 
 .projects-inner .projects-container .project-categories .category-item .category-item-image img {
@@ -52,7 +52,7 @@
 }
 
 .projects-inner .projects-container .project-categories .category-item .category-item-body {
-    @apply w-full p-3 opacity-0 absolute bottom-0 flex flex-col justify-end h-full gap-3 transition-all duration-300;
+    @apply w-full p-3 opacity-0 absolute top-0 flex flex-col justify-end h-full gap-3 transition-all duration-300;
     background: linear-gradient(to top, var(--primary-background), transparent);
 }
 

@@ -26,17 +26,21 @@
           <p>Social Links</p>
           <ul class="social-link-list">
             <li class="social-link-item">
-              <a href="#" class="social-link">
+              <a href="https://www.facebook.com/edrian.oria11" target="_blank" class="social-link">
                 <i class="bi bi-facebook"></i>
               </a>
             </li>
             <li class="social-link-item">
-              <a href="#" class="social-link">
+              <a
+                href="https://www.linkedin.com/in/edrian-oria-a47279373/"
+                target="_blank"
+                class="social-link"
+              >
                 <i class="bi bi-linkedin"></i>
               </a>
             </li>
             <li class="social-link-item">
-              <a href="#" class="social-link">
+              <a href="https://github.com/edrianoria11" target="_blank" class="social-link">
                 <i class="bi bi-github"></i>
               </a>
             </li>
@@ -45,6 +49,7 @@
       </div>
       <div class="footer-section-2">
         <p>© {{ year }} Edrian Oria. All rights reserved.</p>
+        <p class="text-sm">Built with Vue.js and modern web technologies</p>
       </div>
     </div>
   </div>
